@@ -28,12 +28,6 @@ pipeline{
 			}
 		}
 
-		stage('Build Image'){
-			steps{
-				docker build -t newImage .
-			}
-				
-		}
 
 	}	
 	
