@@ -28,7 +28,7 @@ pipeline{
 
 		stage('Build Image'){
 			steps{
-				app = docker.build("Test/src")
+				docker build . -t newImage
 			}
 				
 		}
