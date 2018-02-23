@@ -1,6 +1,11 @@
 pipeline{
 	
-	agent any
+	agent {
+		docker{
+			label 'docker-image'
+			image 'openjdk:8-jdk-alpine'
+		}
+	}
  
 	stages{
 	
