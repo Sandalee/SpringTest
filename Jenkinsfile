@@ -3,7 +3,7 @@ pipeline{
 	agent {
 		docker{
 			image 'maven'
-			args ‘-v /tmp:/tmp -p 80:80’
+			args ‘-v /tmp/tmp -p 80:80’
 		}
 	}
  
