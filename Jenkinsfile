@@ -2,7 +2,6 @@ pipeline{
 	
 	agent {
 		docker{
-			label 'docker-node'
 			image 'openjdk:8-jdk-alpine'
 		}
 	}
