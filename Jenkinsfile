@@ -16,7 +16,7 @@ pipeline{
 		stage('Compile Source'){
 			steps{
 				echo 'Compiling...'
-				sh 'mvn clean compile'
+				sh 'mvn clean compile' 
 				
 			}	
 		}
