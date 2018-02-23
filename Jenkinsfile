@@ -1,8 +1,6 @@
 pipeline{
 	
-	agent {
-		docker 'maven'
-	}
+	agent any
  
 	stages{
 	
@@ -24,6 +22,7 @@ pipeline{
 			steps{
 				echo 'building...'				
 				sh 'mvn package'
+				sh 'mvn install'
 				archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
 			}
 		}
