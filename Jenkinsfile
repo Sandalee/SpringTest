@@ -29,6 +29,19 @@ pipeline{
 			}
 		}
 
+		stage('Build Image'){
+			steps{
+				docker build . -t dockerimage
+			}
+		}
+
+		stage('push image'){
+			steps{
+				echo 'image will be pushed'
+			}
+			
+		}
+
 
 	}	
 	
