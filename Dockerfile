@@ -1,4 +1,4 @@
 FROM maven
-SpringHelloworld-0.0.1-SNAPSHOT.jar
-ADD ${SpringHelloworld-0.0.1-SNAPSHOT.jar} app.jar
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+ADD SpringHelloworld-0.0.1-SNAPSHOT.jar /
+
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/SpringHelloworld-0.0.1-SNAPSHOT.jar"]
