@@ -25,18 +25,14 @@ node{
 
 		stage('Build Image'){
 			
-				app= docker.build("dockerimage")
+				def customImage= docker.build("my-image:${env.BUILD_ID}")
+				customImage.push()
+
+    				customImage.push('latest')
 			
 		}
 
-		stage('push image'){
-			
-				echo 'image will be pushed'
-				docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials')
-				app.push("${env.BUILD_NUMBER}")
-            			app.push("latest")
-			
-		}
+	
 
 
 		
