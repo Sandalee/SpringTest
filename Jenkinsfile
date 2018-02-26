@@ -31,7 +31,7 @@ pipeline{
 
 		stage('Build Image'){
 			steps{
-				docker build -t "dockerimage"
+				docker.build("dockerimage")
 			}
 		}
 
