@@ -26,10 +26,8 @@ node{
 		stage('Build Image'){
 
 				def customImage = docker.build("my-image:${env.BUILD_ID}")
-
-  
-			
 				
+				customImage.withRun(-it -p 8000:8000)		
 			
 		}
 
