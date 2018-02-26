@@ -2,7 +2,7 @@ node{
 	
 	def app
  
-	stages{
+	
 	
 		stage('clone repository'){
 			
@@ -39,7 +39,7 @@ node{
 		}
 
 
-	}	
+		
 	
 }
 
