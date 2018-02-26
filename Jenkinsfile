@@ -1,44 +1,40 @@
-pipeline{
+node{
 	
-	agent {
-		docker 'maven'
-	}
+	def app
  
 	stages{
 	
 		stage('clone repository'){
-			steps{
+			
 				checkout scm
-			}
 					
 		}
 
 		stage('Compile Source'){
-			steps{
+		
 				echo 'Compiling...'
 				sh 'mvn clean compile' 
-				
-			}	
+	
 		}
 		stage('Build'){
-			steps{
 				echo 'building...'				
 				sh 'mvn package'
 				sh 'mvn install'
 				archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
-			}
 		}
 
 		stage('Build Image'){
-			steps{
-				docker.build("dockerimage")
-			}
+			
+				app= docker.build("dockerimage")
+			
 		}
 
 		stage('push image'){
-			steps{
+			
 				echo 'image will be pushed'
-			}
+				docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials')
+				app.push("${env.BUILD_NUMBER}")
+            			app.push("latest")
 			
 		}
 
